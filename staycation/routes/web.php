@@ -6,8 +6,11 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\Admin\RoomController as AdminRoomController;
 
+use App\Models\Room;
+
 Route::get('/', function () {
-    return view('welcome');
+    $rooms = Room::take(3)->latest()->get();
+    return view('home', compact('rooms'));
 });
 
 Route::get('/dashboard', function () {
