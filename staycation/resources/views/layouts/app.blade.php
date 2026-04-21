@@ -45,6 +45,10 @@
                             <div class="hidden sm:flex sm:items-center space-x-4">
                                 @auth
                                     <a href="{{ url('/dashboard') }}" class="font-medium text-gray-600 hover:text-blue-600 transition">Dashboard</a>
+                                    <form method="POST" action="{{ route('logout') }}" class="inline">
+                                        @csrf
+                                        <button type="submit" class="font-medium text-red-600 hover:text-red-700 transition">Logout</button>
+                                    </form>
                                 @else
                                     <a href="{{ route('login') }}" class="font-medium text-gray-600 hover:text-blue-600 transition">Masuk</a>
                                     @if (Route::has('register'))
