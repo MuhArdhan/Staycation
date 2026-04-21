@@ -8,7 +8,7 @@
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
-                <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+                <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left" data-aos="fade-right">
                     <span class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-600 text-sm font-semibold mb-6">#1 Pilihan Liburan Anda</span>
                     <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:leading-tight">
                         Lupakan Rutinitas,<br>
@@ -26,8 +26,8 @@
                         </a>
                     </div>
                 </div>
-                <div class="mt-16 lg:mt-0 lg:col-span-6 relative">
-                    <img class="w-full rounded-[2rem] shadow-2xl transform lg:scale-105" src="img/hotel.jpg" alt="Beautiful Hotel Room">
+                <div class="mt-16 lg:mt-0 lg:col-span-6 relative" data-aos="fade-left" data-aos-delay="200">
+                    <img class="w-full rounded-[2rem] shadow-2xl transform lg:scale-105" src="img/hotel.jpg" alt="Beautiful Hotel Room" decoding="async">
                     
                     <!-- Floating Card Badge -->
                     <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl flex items-center gap-4 border border-gray-50 hidden md:flex">
@@ -44,10 +44,46 @@
         </div>
     </div>
 
+    <!-- About Section -->
+    <div id="about" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-12 lg:mb-0 relative" data-aos="fade-right">
+                    <!-- Decorative element behind image -->
+                    <div class="absolute -top-4 -left-4 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob text-blue-200"></div>
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Tentang Staycation" loading="lazy" decoding="async" class="rounded-3xl shadow-2xl relative z-10 w-full object-cover h-[500px]">
+                </div>
+                <div class="relative z-10" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="text-base font-semibold text-blue-600 tracking-wide uppercase mb-2">Tentang Kami</h2>
+                    <h3 class="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl text-balance mb-6">
+                        Teman Perjalanan Terbaik Anda
+                    </h3>
+                    <p class="text-lg text-gray-500 mb-6 leading-relaxed text-pretty">
+                        <strong class="text-gray-800">Staycation</strong> adalah platform pemesanan kamar penginapan dan hotel yang dirancang secara khusus untuk memenuhi kebutuhan liburan dan relaksasi Anda. Kami percaya bahwa setiap orang berhak mendapatkan pengalaman liburan yang nyaman, mudah, dan tak terlupakan.
+                    </p>
+                    <p class="text-lg text-gray-500 mb-8 leading-relaxed text-pretty">
+                        Dengan kurasi kamar-kamar terbaik yang estetik, bersih, dan strategis, misi kami adalah menjembatani Anda dengan berbagai penginapan impian tanpa harus khawatir tentang proses pemesanan yang rumit.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow-sm transition hover:shadow-md">
+                            <span class="text-3xl font-extrabold text-blue-600 mb-2 block">100+</span>
+                            <span class="text-sm font-medium text-gray-600">Kamar Premium</span>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow-sm transition hover:shadow-md">
+                            <span class="text-3xl font-extrabold text-blue-600 mb-2 block">99%</span>
+                            <span class="text-sm font-medium text-gray-600">Pelanggan Puas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Featured Rooms Section -->
     <div id="rooms" class="py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
                 <h2 class="text-base font-semibold text-blue-600 tracking-wide uppercase">Rekomendasi</h2>
                 <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl text-balance">
                     Kamar Pilihan Terbaik Untuk Anda
@@ -60,10 +96,10 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 @forelse($rooms ?? [] as $room)
                 <!-- Room Card -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition duration-300 border border-gray-100 group flex flex-col">
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition duration-300 border border-gray-100 group flex flex-col" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
                     <div class="aspect-w-16 aspect-h-10 relative overflow-hidden">
                         <!-- We use a placeholder since actual image paths might differ -->
-                        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="{{ $room->name }}" class="w-full h-64 object-cover object-center group-hover:scale-110 transition duration-500">
+                        <img src="{{ $room->image }}" alt="{{ $room->name }}" loading="lazy" decoding="async" class="w-full h-64 object-cover object-center group-hover:scale-110 transition duration-500">
                         <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-semibold text-pink-600 shadow-sm flex items-center gap-1">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                             Populer
@@ -117,7 +153,7 @@
     <!-- CTA Section -->
     <div class="bg-blue-600 relative overflow-hidden">
         <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center blend-overlay opacity-20"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 text-center" data-aos="zoom-in">
             <h2 class="text-3xl font-extrabold text-white sm:text-4xl text-balance">
                 Siap untuk liburan Anda berikutnya?
             </h2>

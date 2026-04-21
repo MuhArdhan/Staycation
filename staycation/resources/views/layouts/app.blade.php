@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +13,9 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- AOS CSS -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     </head>
     <body class="font-sans antialiased">
 
@@ -30,9 +33,9 @@
 
                     <!-- Navigation Links -->
                     <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-8">
-                        <a href="/" class="text-gray-900 font-medium hover:text-blue-600 transition">Beranda</a>
-                        <a href="#rooms" class="text-gray-500 font-medium hover:text-blue-600 transition">Kamar</a>
-                        <a href="#about" class="text-gray-500 font-medium hover:text-blue-600 transition">Tentang Kami</a>
+                        <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'text-gray-900' : 'text-gray-500' }} font-medium hover:text-blue-600 transition">Beranda</a>
+                        <a href="{{ url('/#rooms') }}" class="text-gray-500 font-medium hover:text-blue-600 transition">Kamar</a>
+                        <a href="{{ url('/#about') }}" class="text-gray-500 font-medium hover:text-blue-600 transition">Tentang Kami</a>
                         <a href="#contact" class="text-gray-500 font-medium hover:text-blue-600 transition">Kontak</a>
                     </div>
 
@@ -69,7 +72,7 @@
         </main>
 
         <!-- Footer -->
-        <footer class="bg-gray-900 pt-16 pb-8">
+        <footer id="contact" class="bg-gray-900 pt-16 pb-8">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-12 text-gray-300">
                     <div class="md:col-span-2">
@@ -81,9 +84,9 @@
                     <div>
                         <h4 class="text-white font-semibold mb-6">Navigasi</h4>
                         <ul class="space-y-3 text-sm">
-                            <li><a href="/" class="hover:text-blue-500 transition">Beranda</a></li>
-                            <li><a href="#rooms" class="hover:text-blue-500 transition">Kamar</a></li>
-                            <li><a href="#about" class="hover:text-blue-500 transition">Tentang Kami</a></li>
+                            <li><a href="{{ url('/') }}" class="hover:text-blue-500 transition">Beranda</a></li>
+                            <li><a href="{{ url('/#rooms') }}" class="hover:text-blue-500 transition">Kamar</a></li>
+                            <li><a href="{{ url('/#about') }}" class="hover:text-blue-500 transition">Tentang Kami</a></li>
                         </ul>
                     </div>
                     <div>
@@ -99,5 +102,15 @@
                 </div>
             </div>
         </footer>
+
+        <!-- AOS JS -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                once: true,
+                offset: 50,
+                duration: 800,
+            });
+        </script>
     </body>
 </html>

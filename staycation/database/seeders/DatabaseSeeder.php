@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
                 'email_verified_at' => now(),
                 'password' => Hash::make('password'),
                 'remember_token' => Str::random(10),
+                'role' => 'admin',
             ]
         );
 
@@ -43,24 +44,28 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Deluxe Marina Room',
                 'description' => 'Kamar dengan pemandangan lautan langsung. Nikmati fasilitas seperti AC, TV Pintar, Bathub mewah, dan teras privat. Sangat cocok bagi Anda yang menginginkan ketenangan di pagi hari sela staycation.',
+                'image' => 'img/rooms/deluxe-marina-room.jpg',
                 'price' => 850000,
                 'stock' => 5,
             ],
             [
                 'name' => 'Superior City View',
                 'description' => 'Tinggal di pusat kota tak pernah senyaman ini. Pemandangan lampu-lampu indahnya kota membuat malam Anda semakin berkesan. Cocok untuk pasangan.',
+                'image' => 'img/rooms/superior-city-view.jpg',
                 'price' => 500000,
                 'stock' => 10,
             ],
             [
                 'name' => 'Presidential Suite',
                 'description' => 'Kamar termewah dengan luas yang fantastis. Terdapat ruang tamu, mini bar, dan kolam renang privat kecil di balkon. Rasakan pengalaman menginap bagai seorang VIP.',
+                'image' => 'img/rooms/presidential-suite.jpg',
                 'price' => 2500000,
                 'stock' => 2,
             ],
             [
                 'name' => 'Standard Cozy Room',
                 'description' => 'Kamar estetik minimalis yang super nyaman, dilengkapi dengan kasur queen size empuk. Harga sangat terjangkau dengan pelayanan standar bintang lima.',
+                'image' => 'img/rooms/standard-cozy-room.jpg',
                 'price' => 350000,
                 'stock' => 15,
             ]
