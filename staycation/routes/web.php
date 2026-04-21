@@ -7,6 +7,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\Admin\RoomController as AdminRoomController;
 
 use App\Models\Room;
+use App\Http\Controllers\SocialAuthController;
 
 Route::get('/', function () {
     $rooms = Room::take(3)->latest()->get();
@@ -22,6 +23,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// Socialite Routes
+Route::get('/auth/google', [SocialAuthController::class, 'redirectToGoogle'])->name('google.login');
+Route::get('/auth/google/callback', [SocialAuthController::class, 'handleGoogleCallback'])->name('google.callback');
 
 route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index');
 route::get('/rooms/{id}', [RoomController::class, 'show'])->name('rooms.show');
