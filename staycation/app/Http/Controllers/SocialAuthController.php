@@ -38,15 +38,15 @@ class SocialAuthController extends Controller
                     'name' => $googleUser->getName(),
                     'email' => $googleUser->getEmail(),
                     'google_id' => $googleUser->getId(),
+                    'avatar' => $googleUser->getAvatar(),
                     'password' => bcrypt(Str::random(24)), // Random password for oauth
                 ]);
             } else {
-                // Update google_id if user exists but doesn't have it linked
-                if (!$user->google_id) {
-                    $user->update([
-                        'google_id' => $googleUser->getId()
-                    ]);
-                }
+                // Update google_id or avatar if user exists
+                $user->update([
+                    'google_id' => $googleUser->getId(),
+                    'avatar' => $user->avatar ?? $googleUser->getAvatar(),
+                ]);
             }
 
             Auth::login($user);

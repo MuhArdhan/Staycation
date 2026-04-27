@@ -44,11 +44,38 @@
                         @if (Route::has('login'))
                             <div class="hidden sm:flex sm:items-center space-x-4">
                                 @auth
-                                    <a href="{{ route('profile.edit') }}" class="font-medium text-gray-600 hover:text-blue-600 transition">Profil</a>
-                                    <form method="POST" action="{{ route('logout') }}" class="inline">
-                                        @csrf
-                                        <button type="submit" class="font-medium text-red-600 hover:text-red-700 transition">Logout</button>
-                                    </form>
+                                    <div class="relative">
+                                        <x-dropdown align="right" width="48">
+                                            <x-slot name="trigger">
+                                                <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                                    @if(Auth::user()->avatar)
+                                                        <img src="{{ str_starts_with(Auth::user()->avatar, 'http') ? Auth::user()->avatar : asset('storage/' . Auth::user()->avatar) }}" alt="{{ Auth::user()->name }}" class="h-8 w-8 rounded-full object-cover">
+                                                    @else
+                                                        <div class="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-xs font-bold">
+                                                            {{ substr(Auth::user()->name, 0, 1) }}
+                                                        </div>
+                                                    @endif
+                                                </button>
+                                            </x-slot>
+
+                                            <x-slot name="content">
+                                                <x-dropdown-link :href="route('profile.edit')">
+                                                    {{ __('Profile') }}
+                                                </x-dropdown-link>
+                                                <x-dropdown-link href="#">
+                                                    {{ __('History') }}
+                                                </x-dropdown-link>
+                                                <form method="POST" action="{{ route('logout') }}">
+                                                    @csrf
+                                                    <x-dropdown-link :href="route('logout')"
+                                                            onclick="event.preventDefault();
+                                                                        this.closest('form').submit();">
+                                                        {{ __('Log Out') }}
+                                                    </x-dropdown-link>
+                                                </form>
+                                            </x-slot>
+                                        </x-dropdown>
+                                    </div>
                                 @else
                                     <a href="{{ route('login') }}" class="font-medium text-gray-600 hover:text-blue-600 transition">Masuk</a>
                                     @if (Route::has('register'))

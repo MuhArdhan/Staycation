@@ -18,7 +18,7 @@
     <div class="min-h-screen flex">
         <!-- Left Side: Image -->
         <div class="hidden lg:block lg:w-1/2 relative">
-            <img src="https://images.unsplash.com/photo-1542314831-c6a4d27ce6a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80" alt="Staycation Login" class="absolute inset-0 w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80" alt="Staycation Login" class="absolute inset-0 w-full h-full object-cover">
             <!-- Overlay and Text -->
             <div class="absolute inset-0 bg-blue-900/40 blend-multiply"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
