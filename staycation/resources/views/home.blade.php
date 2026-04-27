@@ -21,9 +21,6 @@
                         <a href="#rooms" class="w-full flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 md:text-lg transition shadow-lg shadow-blue-300 md:w-auto">
                             Eksplor Kamar
                         </a>
-                        <a href="#about" class="w-full flex items-center justify-center px-8 py-3.5 border-2 border-gray-200 text-base font-medium rounded-xl text-gray-700 bg-white hover:bg-gray-50 md:text-lg transition md:w-auto mt-4 sm:mt-0">
-                            Cara Pesan
-                        </a>
                     </div>
                 </div>
                 <div class="mt-16 lg:mt-0 lg:col-span-6 relative" data-aos="fade-left" data-aos-delay="200">
@@ -141,12 +138,6 @@
                 @endforelse
             </div>
             
-            <div class="mt-16 text-center">
-                <a href="{{ route('rooms.index') }}" class="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 text-base font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50 transition">
-                    Lihat Semua Kamar
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                </a>
-            </div>
         </div>
     </div>
 
