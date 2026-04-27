@@ -30,7 +30,12 @@ Route::get('/auth/google/callback', [SocialAuthController::class, 'handleGoogleC
 
 route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index');
 route::get('/rooms/{id}', [RoomController::class, 'show'])->name('rooms.show');
-route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+Route::middleware('auth')->group(function () {
+    Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
+    Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+});
+
+Route::post('/xendit/webhook', [BookingController::class, 'webhook'])->name('xendit.webhook');
 
 // Admin
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {

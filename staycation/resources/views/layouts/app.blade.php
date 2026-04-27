@@ -36,7 +36,7 @@
                         <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'text-gray-900' : 'text-gray-500' }} font-medium hover:text-blue-600 transition">Beranda</a>
                         <a href="{{ url('/#rooms') }}" class="text-gray-500 font-medium hover:text-blue-600 transition">Kamar</a>
                         <a href="{{ url('/#about') }}" class="text-gray-500 font-medium hover:text-blue-600 transition">Tentang Kami</a>
-                        <a href="#contact" class="text-gray-500 font-medium hover:text-blue-600 transition">Kontak</a>
+                        <a href="{{ url('/#contact') }}" class="text-gray-500 font-medium hover:text-blue-600 transition">Kontak</a>
                     </div>
 
                     <!-- Auth / Actions -->
@@ -62,7 +62,7 @@
                                                 <x-dropdown-link :href="route('profile.edit')">
                                                     {{ __('Profile') }}
                                                 </x-dropdown-link>
-                                                <x-dropdown-link href="#">
+                                                <x-dropdown-link :href="route('bookings.index')">
                                                     {{ __('History') }}
                                                 </x-dropdown-link>
                                                 <form method="POST" action="{{ route('logout') }}">
