@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
 Route::post('/xendit/webhook', [BookingController::class, 'webhook'])->name('xendit.webhook');
 
 // Admin
-Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('rooms', AdminRoomController::class);
 });
 
